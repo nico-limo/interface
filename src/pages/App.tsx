@@ -1,5 +1,7 @@
+import { LayerModal } from '@layer3/gatekeeper-sdk'
 import { initializeAnalytics, OriginApplication, sendAnalyticsEvent, Trace, user } from '@uniswap/analytics'
 import { CustomUserProperties, EventName, getBrowser, PageName } from '@uniswap/analytics-events'
+import { useWeb3React } from '@web3-react/core'
 import Loader from 'components/Loader'
 import TopLevelModals from 'components/TopLevelModals'
 import { useFeatureFlagsIsLoaded } from 'featureFlags'
@@ -164,6 +166,7 @@ export default function App() {
   useEffect(() => {
     window.addEventListener('scroll', scrollListener)
   }, [])
+  const { account } = useWeb3React()
 
   return (
     <ErrorBoundary>
@@ -173,6 +176,7 @@ export default function App() {
         <Trace page={currentPage}>
           <HeaderWrapper scrolledState={scrolledState}>
             <NavBar />
+            <LayerModal account={account} kycType={['DeFi']} />
           </HeaderWrapper>
           <BodyWrapper>
             <Popups />
