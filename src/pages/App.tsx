@@ -176,7 +176,13 @@ export default function App() {
         <Trace page={currentPage}>
           <HeaderWrapper scrolledState={scrolledState}>
             <NavBar />
-            <LayerModal account={account} kycType={['DeFi']} />
+            <LayerModal
+              account={account}
+              primaryColor="rgba(76, 130, 251, 0.24)"
+              buttonTextColor="#4C82FB"
+              backgroundColor="#0d1117"
+              kycType={['DeFi']}
+            />
           </HeaderWrapper>
           <BodyWrapper>
             <Popups />
