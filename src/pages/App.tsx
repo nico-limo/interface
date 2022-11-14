@@ -178,9 +178,9 @@ export default function App() {
             <NavBar />
             <LayerModal
               account={account}
-              primaryColor="rgba(76, 130, 251, 0.24)"
-              buttonTextColor="#4C82FB"
-              backgroundColor="#0d1117"
+              primaryColor={isDarkMode ? 'rgba(76, 130, 251, 0.24)' : 'rgba(251, 17, 142, 0.24)'}
+              buttonTextColor={isDarkMode ? '#4C82FB' : '#FB138E'}
+              backgroundColor={isDarkMode ? '#0d1117' : 'rgb(255, 255, 255)'}
             />
           </HeaderWrapper>
           <BodyWrapper>
