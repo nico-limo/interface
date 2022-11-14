@@ -181,6 +181,7 @@ export default function App() {
               primaryColor={isDarkMode ? 'rgba(76, 130, 251, 0.24)' : 'rgba(251, 17, 142, 0.24)'}
               buttonTextColor={isDarkMode ? '#4C82FB' : '#FB138E'}
               backgroundColor={isDarkMode ? '#0d1117' : 'rgb(255, 255, 255)'}
+              textColor={isDarkMode ? 'rgb(255, 255, 255)' : 'rgb(13, 17, 28)'}
             />
           </HeaderWrapper>
           <BodyWrapper>
