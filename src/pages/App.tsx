@@ -188,11 +188,14 @@ export default function App() {
         <Trace page={currentPage}>
           <HeaderWrapper scrolledState={scrolledState}>
             <NavBar />
-            <GateKeeperModal
-              account={account}
-              checkIds={['0d0cf1c6-8c89-4ca6-b1f4-61652f42f7a4']}
-              customization={isDarkMode ? darkMode : lightMode}
-            />
+            {account ? (
+              <GateKeeperModal
+                account={account}
+                checkIds={['']}
+                polygonId
+                customization={isDarkMode ? darkMode : lightMode}
+              />
+            ) : null}
           </HeaderWrapper>
           <BodyWrapper>
             <Popups />
