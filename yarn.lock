@@ -2603,10 +2603,10 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
   integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
 
-"@layer3/gatekeeper-sdk@^1.6.6":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-1.6.6.tgz#180c7db2e892a399fb91867ee31c1cc2facdc7bc"
-  integrity sha512-tp9s834WVeXE7eCNtsINZxOLDTasbikea8u165rlMSnIvlaGMOoP1kihtDGbqgwKp6WNZ0RedJbJP61L7/h4lg==
+"@layer3/gatekeeper-sdk@^1.6.7":
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-1.6.7.tgz#8e11ecddb98172e245b1777360e52f5de3942039"
+  integrity sha512-1nNsDo+MZUkrkqTfcgxEtVz/PYX+Y5FvHrhvK6fmswNqJImWcWEG+AnRrg6Ul0dgLcbQAVgv/E6vnZefGEymYA==
   dependencies:
     commitizen "^4.2.5"
 
@@ -17756,6 +17756,11 @@ use-elapsed-time@^2.1.6:
   version "2.1.8"
   resolved "https://registry.npmjs.org/use-elapsed-time/-/use-elapsed-time-2.1.8.tgz"
   integrity sha512-lNLTDffKHdHWweQNvnch9tFI2eRP3tXccSLrwE7U6xrfyWFNEgNQZWWsGhQvtwKa0kJ6L+7E5wKbi3jg86opjg==
+
+use-local-storage@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/use-local-storage/-/use-local-storage-2.3.6.tgz#11058465143aa7537556af482b21c6b1f77a78a6"
+  integrity sha512-OJQHWYbH2M5mMaSY6uYIbfzOm7eVz1fBYFw1wqQurCR2+gQb+FjVt0KzzDAsgTOSEUNVAbaiJ0I4WcNjRn7u5w==
 
 use-resize-observer@^9.0.2:
   version "9.0.2"

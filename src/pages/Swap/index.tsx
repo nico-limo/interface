@@ -498,8 +498,6 @@ export default function Swap() {
     !showWrap && userHasSpecifiedInputOutput && (trade || routeIsLoading || routeIsSyncing)
   )
 
-  const isDarkMode = useIsDarkMode()
-
   const darkMode = {
     primaryColor: 'rgba(76, 130, 251, 0.24)',
     buttonTextColor: '#4C82FB',
@@ -512,18 +510,19 @@ export default function Swap() {
     backgroundColor: 'rgb(255, 255, 255)',
     textColor: 'rgb(13, 17, 28)',
   }
+  const isDarkMode = useIsDarkMode()
 
   return (
     <Trace page={PageName.SWAP_PAGE} shouldLogImpression>
+      {account ? (
+        <GateKeeperModal
+          account={account}
+          checkIds={['']}
+          polygonId
+          customization={isDarkMode ? darkMode : lightMode}
+        />
+      ) : null}
       <>
-        {account ? (
-          <GateKeeperModal
-            account={account}
-            checkIds={['']}
-            polygonId
-            customization={isDarkMode ? darkMode : lightMode}
-          />
-        ) : null}
         <TokenSafetyModal
           isOpen={importTokensNotInDefault.length > 0 && !dismissTokenWarning}
           tokenAddress={importTokensNotInDefault[0]?.address}

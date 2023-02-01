@@ -506,7 +506,6 @@ export default function AddLiquidity() {
         </ButtonError>
       </AutoColumn>
     )
-  const isDarkMode = useIsDarkMode()
 
   const darkMode = {
     primaryColor: 'rgba(76, 130, 251, 0.24)',
@@ -514,6 +513,8 @@ export default function AddLiquidity() {
     backgroundColor: '#0d1117',
     textColor: 'rgb(255, 255, 255)',
   }
+
+  const isDarkMode = useIsDarkMode()
   const lightMode = {
     primaryColor: 'rgba(251, 17, 142, 0.24)',
     buttonTextColor: '#FB138E',
@@ -527,7 +528,7 @@ export default function AddLiquidity() {
         {account ? (
           <GateKeeperModal
             account={account}
-            checkIds={['4dba1b36-72ff-4ef7-ba3d-9512db62295d']}
+            checkIds={['fcb194df-5fa4-4676-8f1d-4d72dff4ed19']}
             customization={isDarkMode ? darkMode : lightMode}
           />
         ) : null}
