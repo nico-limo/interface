@@ -1,7 +1,5 @@
-import { GateKeeperModal } from '@layer3/gatekeeper-sdk'
 import { initializeAnalytics, OriginApplication, sendAnalyticsEvent, Trace, user } from '@uniswap/analytics'
 import { CustomUserProperties, EventName, getBrowser, PageName } from '@uniswap/analytics-events'
-import { useWeb3React } from '@web3-react/core'
 import Loader from 'components/Loader'
 import TopLevelModals from 'components/TopLevelModals'
 import { useFeatureFlagsIsLoaded } from 'featureFlags'
@@ -165,20 +163,6 @@ export default function App() {
   useEffect(() => {
     window.addEventListener('scroll', scrollListener)
   }, [])
-  const { account } = useWeb3React()
-
-  const darkMode = {
-    primaryColor: 'rgba(76, 130, 251, 0.24)',
-    buttonTextColor: '#4C82FB',
-    backgroundColor: '#0d1117',
-    textColor: 'rgb(255, 255, 255)',
-  }
-  const lightMode = {
-    primaryColor: 'rgba(251, 17, 142, 0.24)',
-    buttonTextColor: '#FB138E',
-    backgroundColor: 'rgb(255, 255, 255)',
-    textColor: 'rgb(13, 17, 28)',
-  }
 
   return (
     <ErrorBoundary>
@@ -188,14 +172,6 @@ export default function App() {
         <Trace page={currentPage}>
           <HeaderWrapper scrolledState={scrolledState}>
             <NavBar />
-            {account ? (
-              <GateKeeperModal
-                account={account}
-                checkIds={['']}
-                polygonId
-                customization={isDarkMode ? darkMode : lightMode}
-              />
-            ) : null}
           </HeaderWrapper>
           <BodyWrapper>
             <Popups />

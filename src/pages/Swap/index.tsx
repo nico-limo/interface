@@ -1,3 +1,4 @@
+import { GateKeeperModal } from '@layer3/gatekeeper-sdk'
 import { Trans } from '@lingui/macro'
 import { sendAnalyticsEvent, Trace, TraceEvent } from '@uniswap/analytics'
 import { BrowserEvent, ElementName, EventName, PageName, SectionName } from '@uniswap/analytics-events'
@@ -55,7 +56,7 @@ import {
   useSwapActionHandlers,
   useSwapState,
 } from '../../state/swap/hooks'
-import { useExpertModeManager } from '../../state/user/hooks'
+import { useExpertModeManager, useIsDarkMode } from '../../state/user/hooks'
 import { LinkStyledButton, ThemedText } from '../../theme'
 import { computeFiatValuePriceImpact } from '../../utils/computeFiatValuePriceImpact'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
@@ -497,9 +498,32 @@ export default function Swap() {
     !showWrap && userHasSpecifiedInputOutput && (trade || routeIsLoading || routeIsSyncing)
   )
 
+  const isDarkMode = useIsDarkMode()
+
+  const darkMode = {
+    primaryColor: 'rgba(76, 130, 251, 0.24)',
+    buttonTextColor: '#4C82FB',
+    backgroundColor: '#0d1117',
+    textColor: 'rgb(255, 255, 255)',
+  }
+  const lightMode = {
+    primaryColor: 'rgba(251, 17, 142, 0.24)',
+    buttonTextColor: '#FB138E',
+    backgroundColor: 'rgb(255, 255, 255)',
+    textColor: 'rgb(13, 17, 28)',
+  }
+
   return (
     <Trace page={PageName.SWAP_PAGE} shouldLogImpression>
       <>
+        {account ? (
+          <GateKeeperModal
+            account={account}
+            checkIds={['']}
+            polygonId
+            customization={isDarkMode ? darkMode : lightMode}
+          />
+        ) : null}
         <TokenSafetyModal
           isOpen={importTokensNotInDefault.length > 0 && !dismissTokenWarning}
           tokenAddress={importTokensNotInDefault[0]?.address}

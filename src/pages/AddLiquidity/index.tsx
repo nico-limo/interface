@@ -1,5 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import type { TransactionResponse } from '@ethersproject/providers'
+import { GateKeeperModal } from '@layer3/gatekeeper-sdk'
 import { Trans } from '@lingui/macro'
 import { TraceEvent } from '@uniswap/analytics'
 import { BrowserEvent, ElementName, EventName } from '@uniswap/analytics-events'
@@ -52,7 +53,7 @@ import { useToggleWalletModal } from '../../state/application/hooks'
 import { Bound, Field } from '../../state/mint/v3/actions'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { TransactionType } from '../../state/transactions/types'
-import { useIsExpertMode, useUserSlippageToleranceWithDefault } from '../../state/user/hooks'
+import { useIsDarkMode, useIsExpertMode, useUserSlippageToleranceWithDefault } from '../../state/user/hooks'
 import { ExternalLink, ThemedText } from '../../theme'
 import approveAmountCalldata from '../../utils/approveAmountCalldata'
 import { calculateGasMargin } from '../../utils/calculateGasMargin'
@@ -505,10 +506,31 @@ export default function AddLiquidity() {
         </ButtonError>
       </AutoColumn>
     )
+  const isDarkMode = useIsDarkMode()
+
+  const darkMode = {
+    primaryColor: 'rgba(76, 130, 251, 0.24)',
+    buttonTextColor: '#4C82FB',
+    backgroundColor: '#0d1117',
+    textColor: 'rgb(255, 255, 255)',
+  }
+  const lightMode = {
+    primaryColor: 'rgba(251, 17, 142, 0.24)',
+    buttonTextColor: '#FB138E',
+    backgroundColor: 'rgb(255, 255, 255)',
+    textColor: 'rgb(13, 17, 28)',
+  }
 
   return (
     <>
       <ScrollablePage>
+        {account ? (
+          <GateKeeperModal
+            account={account}
+            checkIds={['3f952c30-1aac-4318-94d5-8e151fb0880d']}
+            customization={isDarkMode ? darkMode : lightMode}
+          />
+        ) : null}
         <TransactionConfirmationModal
           isOpen={showConfirm}
           onDismiss={handleDismissConfirmation}
