@@ -527,7 +527,7 @@ export default function AddLiquidity() {
         {account ? (
           <GateKeeperModal
             account={account}
-            checkIds={['3f952c30-1aac-4318-94d5-8e151fb0880d']}
+            checkIds={['4dba1b36-72ff-4ef7-ba3d-9512db62295d']}
             customization={isDarkMode ? darkMode : lightMode}
           />
         ) : null}
