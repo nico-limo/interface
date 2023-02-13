@@ -2603,10 +2603,10 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
   integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
 
-"@layer3/gatekeeper-sdk@^1.6.7":
-  version "1.6.7"
-  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-1.6.7.tgz#8e11ecddb98172e245b1777360e52f5de3942039"
-  integrity sha512-1nNsDo+MZUkrkqTfcgxEtVz/PYX+Y5FvHrhvK6fmswNqJImWcWEG+AnRrg6Ul0dgLcbQAVgv/E6vnZefGEymYA==
+"@layer3/gatekeeper-sdk@^1.6.9":
+  version "1.6.9"
+  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-1.6.9.tgz#2dce714111ea4619bc53226ddec962fd6a627430"
+  integrity sha512-/z9ltv2fbLM8aZbwv4eySHsfpk/G1kgow+RdekJvcTXbvgzokhaCXGk/w7u+puoAkRM/W6OTv7OtbXM8DbAY3A==
   dependencies:
     commitizen "^4.2.5"
 

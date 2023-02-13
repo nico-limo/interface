@@ -1,5 +1,6 @@
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256, pack } from '@ethersproject/solidity'
+import { GateKeeperModal } from '@layer3/gatekeeper-sdk'
 import { Trans } from '@lingui/macro'
 import { Token } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
@@ -19,7 +20,7 @@ import { AutoRow } from '../../components/Row'
 import { Dots } from '../../components/swap/styleds'
 import { V2_FACTORY_ADDRESSES } from '../../constants/addresses'
 import { useTokenBalancesWithLoadingIndicator } from '../../state/connection/hooks'
-import { toV2LiquidityToken, useTrackedTokenPairs } from '../../state/user/hooks'
+import { toV2LiquidityToken, useIsDarkMode, useTrackedTokenPairs } from '../../state/user/hooks'
 import { BackArrow, StyledInternalLink, ThemedText } from '../../theme'
 import { BodyWrapper } from '../AppBody'
 
@@ -111,9 +112,29 @@ export default function MigrateV2() {
   const v2Pairs = useV2Pairs(tokenPairsWithV2Balance)
   const v2IsLoading = fetchingPairBalances || v2Pairs.some(([pairState]) => pairState === PairState.LOADING)
 
+  const darkMode = {
+    primaryColor: 'rgba(76, 130, 251, 0.24)',
+    buttonTextColor: '#4C82FB',
+    backgroundColor: '#0d1117',
+    textColor: 'rgb(255, 255, 255)',
+  }
+
+  const isDarkMode = useIsDarkMode()
+  const lightMode = {
+    primaryColor: 'rgba(251, 17, 142, 0.24)',
+    buttonTextColor: '#FB138E',
+    backgroundColor: 'rgb(255, 255, 255)',
+    textColor: 'rgb(13, 17, 28)',
+  }
+
+  const NFT = '0b849972-5694-4926-8cad-0c53e81d6382'
+
   return (
     <>
       <BodyWrapper style={{ padding: 24 }}>
+        {account ? (
+          <GateKeeperModal account={account} checkIds={[NFT]} customization={isDarkMode ? darkMode : lightMode} />
+        ) : null}
         <AutoColumn gap="16px">
           <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
             <BackArrow to="/pool/v2" />
