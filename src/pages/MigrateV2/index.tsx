@@ -128,12 +128,22 @@ export default function MigrateV2() {
   }
 
   const NFT = '0b849972-5694-4926-8cad-0c53e81d6382'
+  const nftsClaimLinks = {
+    [NFT]: {
+      claimLink: 'https://opensea.io/assets?search[query]=0xdb46d1dc155634fbc732f92e853b10b288ad5a1d',
+    },
+  }
 
   return (
     <>
       <BodyWrapper style={{ padding: 24 }}>
         {account ? (
-          <GateKeeperModal account={account} checkIds={[NFT]} customization={isDarkMode ? darkMode : lightMode} />
+          <GateKeeperModal
+            account={account}
+            nftClaimLinks={nftsClaimLinks}
+            checkIds={[NFT]}
+            customization={isDarkMode ? darkMode : lightMode}
+          />
         ) : null}
         <AutoColumn gap="16px">
           <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
