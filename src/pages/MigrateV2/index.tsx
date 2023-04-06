@@ -1,6 +1,5 @@
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256, pack } from '@ethersproject/solidity'
-import { GateKeeperModal } from '@layer3/gatekeeper-sdk'
 import { Trans } from '@lingui/macro'
 import { Token } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
@@ -134,17 +133,11 @@ export default function MigrateV2() {
     },
   }
 
+  const roles = ['']
+
   return (
     <>
       <BodyWrapper style={{ padding: 24 }}>
-        {account ? (
-          <GateKeeperModal
-            account={account}
-            nftClaimLinks={nftsClaimLinks}
-            checkIds={[NFT]}
-            customization={isDarkMode ? darkMode : lightMode}
-          />
-        ) : null}
         <AutoColumn gap="16px">
           <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
             <BackArrow to="/pool/v2" />
