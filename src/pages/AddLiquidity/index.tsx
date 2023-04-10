@@ -522,14 +522,17 @@ export default function AddLiquidity() {
     textColor: 'rgb(13, 17, 28)',
   }
 
-  // const KYC = '26f8a5ce-db37-451a-838f-3d6b86128adc'
-  const roles = ['9db6439b-a599-4df0-9ed8-219c28b94367']
+  const creditScoreRole = ['9db6439b-a599-4df0-9ed8-219c28b94367']
 
   return (
     <>
       <ScrollablePage>
         {account ? (
-          <GateKeeperModal account={account} roles={roles} customization={!isDarkMode ? lightMode : darkMode} />
+          <GateKeeperModal
+            account={account}
+            roles={creditScoreRole}
+            customization={!isDarkMode ? lightMode : darkMode}
+          />
         ) : null}
         <TransactionConfirmationModal
           isOpen={showConfirm}
