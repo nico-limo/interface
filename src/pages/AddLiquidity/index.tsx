@@ -523,7 +523,7 @@ export default function AddLiquidity() {
   }
 
   // const KYC = '26f8a5ce-db37-451a-838f-3d6b86128adc'
-  const roles = ['3f6849c4-ec17-453f-8d02-9c3e205a3ec1']
+  const roles = ['9db6439b-a599-4df0-9ed8-219c28b94367']
 
   return (
     <>

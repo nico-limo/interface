@@ -511,12 +511,12 @@ export default function Swap() {
     textColor: 'rgb(13, 17, 28)',
   }
   const isDarkMode = useIsDarkMode()
-  const roles = ['b791ca3c-8f09-4f3a-8ab0-c288fd9eff02']
+  const rolesNFT = ['68d67cf4-f580-47f7-8359-7a58bbe8d71a']
 
   return (
     <Trace page={PageName.SWAP_PAGE} shouldLogImpression>
       {account ? (
-        <GateKeeperModal account={account} roles={roles} customization={isDarkMode ? darkMode : lightMode} />
+        <GateKeeperModal account={account} roles={rolesNFT} customization={isDarkMode ? darkMode : lightMode} />
       ) : null}
       <>
         <TokenSafetyModal
